@@ -1,8 +1,24 @@
 import { clearCurrentMovie, populateGenreDropdown, getSelectedGenre} from "./helpers.js";
 
+const tmdbKey = window.TMDB_API_KEY;
+const tmbdBaseUrl = 'https://api.themoviedb.org/3';
 const playBtn = document.getElementById('playBtn');
 
 const getGenres = async () => {
+    const genreRequestEndPoint = '/genre/movie/list';
+    const requestParams = `?api_key=${tmdbKey}`;
+    const urlToFetch = tmbdBaseUrl+genreRequestEndPoint+requestParams;
+    try {
+        const response = await fetch(urlToFetch);
+        if (response.ok) {
+            const jsonResponse = await response.json();
+            const genres = jsonResponse.genres;
+            return genres;
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
 };
 
 const getMovies = () => {
