@@ -1,0 +1,1 @@
+window.TMDB_API_KEY = "YOUR_REAL_KEY_HERE";
