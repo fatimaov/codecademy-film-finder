@@ -30,13 +30,13 @@ body {
     color: white;
     height: 100vh;
     overflow: hidden;
-    margin: 0 70px;
+    margin: 0 50px;
     position: relative;
 }
 
 header {
     text-align: center;
-    padding: 50px;
+    padding-top: 50px;
     margin: auto;
 }
 
