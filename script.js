@@ -40,7 +40,21 @@ const getMovies = async () => {
 
 };
 
-const getMovieInfo = () => {
+const getMovieInfo = async (movie) => {
+    const movieId = movie.id;
+    const movieEndPoint = `/movie/${movieId}`;
+    const requestParams = `?api_key=${tmdbKey}`;
+    const urlToFetch = tmbdBaseUrl+movieEndPoint+requestParams;
+    try {
+        const response = await fetch(urlToFetch);
+        if (response.ok) {
+            const movieInfo = await response.json();
+            return movieInfo;
+        }
+
+    } catch (error) {
+        console.log(error);
+    }
 
 };
 
