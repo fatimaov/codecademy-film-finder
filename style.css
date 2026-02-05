@@ -59,6 +59,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 30px;
     margin: 50px;
 }
@@ -94,10 +95,38 @@ select {
 
 #playBtn:hover, #likeBtn:hover, #dislikeBtn:hover {
     background-color: lemonchiffon;
+    cursor: pointer;
+}
+
+#movieInfo {
+    display: flex;
+    width: 700px;
+    margin: 50px;
+    
+}
+
+#moviePoster, #movieText {
+    height: 300px;
+}
+
+img#moviePoster {
+    width:  auto;
+    height:  100%;
+    display:  block;
+    margin:  auto;
+}
+
+#movieTitle {
+    font-size: 2rem;
+}
+
+#movieTitle, #movieOverview {
+    padding:  32px;
 }
 
 #likeBtn, #dislikeBtn {
     padding: 5px;
+    margin: 0 5px;
     border-radius: 5px;
     background-color: gold;
     color: black;

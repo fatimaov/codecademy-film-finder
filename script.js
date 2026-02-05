@@ -1,4 +1,4 @@
-import { clearCurrentMovie, populateGenreDropdown, getSelectedGenre} from "./helpers.js";
+import { clearCurrentMovie, populateGenreDropdown, getSelectedGenre, getRandomMovie, displayMovie} from "./helpers.js";
 
 const tmdbKey = window.TMDB_API_KEY;
 const tmbdBaseUrl = 'https://api.themoviedb.org/3';
@@ -59,14 +59,19 @@ const getMovieInfo = async (movie) => {
 };
 
 // Gets a list of movies and ultimately displays the info of a random movie from the list
-const showRandomMovie = () => {
+const showRandomMovie = async () => {
   const movieInfo = document.getElementById('movieInfo');
   if (movieInfo.childNodes.length > 0) {
     clearCurrentMovie();
   };
-
+  const movies = await getMovies();
+  const randomMovie = getRandomMovie(movies);
+  const info = await getMovieInfo(randomMovie);
+  displayMovie(info);
 };
 
 getGenres().then(populateGenreDropdown);
 playBtn.onclick = showRandomMovie;
+
+export {showRandomMovie};   
 

@@ -1,3 +1,5 @@
+import { showRandomMovie } from "./script.js";
+
 // Populate dropdown menu with all the available genres
 const populateGenreDropdown = (genres) => {
     const select = document.getElementById('genres')
@@ -55,7 +57,7 @@ const createMoviePoster = (posterPath) => {
 
 // Create HTML for movie title
 const createMovieTitle = (title) => {
-    const titleHeader = document.createElement('h1');
+    const titleHeader = document.createElement('h2');
     titleHeader.setAttribute('id', 'movieTitle');
     titleHeader.innerHTML = title;
   
@@ -100,8 +102,4 @@ const displayMovie = (movieInfo) => {
     dislikeBtn.onclick = dislikeMovie;
 };
 
-function hola() {
-    console.log('hola')
-}
-
-export {clearCurrentMovie, populateGenreDropdown, getSelectedGenre};
+export {clearCurrentMovie, populateGenreDropdown, getSelectedGenre, getRandomMovie, displayMovie};
